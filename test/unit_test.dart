@@ -5,8 +5,4 @@ void main() {
   test('Reversed Text', () {
     expect(reverseText('Mohamed'), 'demahoM');
   });
-
-  test('Length Text', () {
-    expect(lengthText('Mohamed'), 7);
-  });
 }

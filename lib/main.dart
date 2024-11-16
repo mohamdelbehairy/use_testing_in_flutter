@@ -28,7 +28,6 @@ class _HomeViewState extends State<HomeView> {
   TextEditingController controller = TextEditingController();
 
   String resultText = "";
-  int? resultLength;
 
   @override
   Widget build(BuildContext context) {
@@ -54,16 +53,14 @@ class _HomeViewState extends State<HomeView> {
                   onPressed: () {
                     setState(() {
                       resultText = reverseText(controller.text);
-                      resultLength = lengthText(controller.text);
                     });
                   },
                   child: const Text('Click',
                       style: TextStyle(color: Colors.white))),
               const SizedBox(height: 32),
-              if (resultLength != null)
-                Text('$resultText . and length is: $resultLength',
-                    style: const TextStyle(
-                        fontSize: 16, fontWeight: FontWeight.bold))
+              Text(resultText,
+                  style: const TextStyle(
+                      fontSize: 16, fontWeight: FontWeight.bold))
             ],
           ),
         ),
@@ -74,8 +71,4 @@ class _HomeViewState extends State<HomeView> {
 
 String reverseText(String text) {
   return text.split('').reversed.join('');
-}
-
-int lengthText(String text) {
-  return text.length;
 }
